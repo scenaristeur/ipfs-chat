@@ -1,4 +1,4 @@
-const publicPath = process.env.NODE_ENV === 'production' ? '/ipgs-chat/' : '/'
+const publicPath = process.env.NODE_ENV === 'production' ? '/ipfs-chat/' : '/'
 
 module.exports = {
   // options...
