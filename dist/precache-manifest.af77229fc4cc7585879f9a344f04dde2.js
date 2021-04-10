@@ -1,14 +1,14 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3aba78ccf4fc71ed8403",
-    "url": "/ipfs-chat/css/app.42ac9c9b.css"
+    "revision": "95392f2c10bab6729b08",
+    "url": "/ipfs-chat/css/app.7e78457d.css"
   },
   {
     "revision": "9a307d5e1a111a43d2c1",
     "url": "/ipfs-chat/css/chunk-vendors.267bdc3d.css"
   },
   {
-    "revision": "24573b2c9ff1c87afbb123c6dff6ea76",
+    "revision": "6b799f1857951251cb3279063d02696a",
     "url": "/ipfs-chat/index.html"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ipfs-chat/js/about.56c4bd83.js"
   },
   {
-    "revision": "3aba78ccf4fc71ed8403",
-    "url": "/ipfs-chat/js/app.eb66b0aa.js"
+    "revision": "95392f2c10bab6729b08",
+    "url": "/ipfs-chat/js/app.b223abd9.js"
   },
   {
     "revision": "d62333b9238cc19b577c",
@@ -28,8 +28,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ipfs-chat/js/chunk-c76a86e4.f425841f.js"
   },
   {
-    "revision": "e56e11a6a46bb226bde2",
-    "url": "/ipfs-chat/js/chunk-d353dcf2.aa492a41.js"
+    "revision": "7bf2f6e62218c2d9fa24",
+    "url": "/ipfs-chat/js/chunk-d353dcf2.de6d1953.js"
   },
   {
     "revision": "9a307d5e1a111a43d2c1",

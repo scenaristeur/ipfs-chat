@@ -3,8 +3,10 @@
     <div id="nav">
       <router-link to="/">Chat</router-link> |
       <router-link to="/about">About</router-link>
+ 
     </div>
     <router-view />
+    <small>0.0.1</small>
   </div>
 </template>
 

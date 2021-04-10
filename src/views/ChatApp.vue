@@ -116,7 +116,7 @@ export default {
     },
     async processNotifs() {
       console.log(this.notifications);
-      // this.nodes = [];
+       this.nodes = [];
       if (this.notifications != undefined && this.notifications.length > 0) {
         this.notifications.forEach((n) => {
           this.loadIpfs(n);
