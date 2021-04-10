@@ -12,7 +12,7 @@ Vue.use(IconsPlugin)
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-import "bootswatch/dist/superhero/bootstrap.min.css";
+import "bootswatch/dist/sketchy/bootstrap.min.css";
 
 
 import VueIpfs from './plugins/vue-ipfs';
