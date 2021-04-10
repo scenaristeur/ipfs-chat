@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "75ed5a0c45524e731044",
+    "revision": "9d291bf9ecf99c732247",
     "url": "/ipgs-chat/css/app.42ac9c9b.css"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ipgs-chat/css/chunk-vendors.267bdc3d.css"
   },
   {
-    "revision": "9f7bfd7fe13e35e719bdf1e51163bcf6",
+    "revision": "9bfb4de136fe57e23e4d61f243ce22d3",
     "url": "/ipgs-chat/index.html"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ipgs-chat/js/about.56c4bd83.js"
   },
   {
-    "revision": "75ed5a0c45524e731044",
-    "url": "/ipgs-chat/js/app.21f5d2ff.js"
+    "revision": "9d291bf9ecf99c732247",
+    "url": "/ipgs-chat/js/app.0f31ecc0.js"
   },
   {
     "revision": "d62333b9238cc19b577c",
