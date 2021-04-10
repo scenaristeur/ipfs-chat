@@ -2,6 +2,7 @@
 
 ## Project setup
 ```
+npm install -g node-pre-gyp @vue/cli
 npm install
 ```
 
