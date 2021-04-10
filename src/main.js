@@ -20,6 +20,9 @@ import VueIpfs from './plugins/vue-ipfs';
 // Load our IPFS plugin.
 Vue.use(VueIpfs);
 
+import { Network } from "vue-vis-network";
+Vue.component('network', Network);
+
 
 Vue.config.productionTip = false
 

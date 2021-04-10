@@ -39,17 +39,28 @@ export default {
   },
   methods: {
     async update() {
-      let notifications = [];
+     // let notifications = [];
       await ldflex.clearCache();
       for await (const agoraEvent of ldflex[this.agoraPath][
         "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/hasPart"
       ]) {
-        notifications.push(`${agoraEvent}`);
+          let n = `${agoraEvent}`
+       !this.notifications.includes(n) ? this.notifications.push(n) :""
         // nb++;
       }
-      console.log(notifications);
-      this.$store.commit("setNotifications", notifications);
+      console.log(this.notifications);
+ 
 
+    },
+  },
+    computed: {
+    notifications: {
+      get() {
+        return this.$store.state.notifications;
+      },
+      set(notifications) {
+             this.$store.commit("setNotifications", notifications);
+      },
     },
   },
 };
