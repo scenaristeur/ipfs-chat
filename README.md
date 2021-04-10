@@ -1,4 +1,5 @@
 # ipfs-chat
+- https://github.com/libp2p/js-libp2p-examples/tree/master/chat/browser/08-End
 
 ## Project setup
 ```
@@ -22,3 +23,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+###
+https://www.youtube.com/watch?v=JnpInbuvolw à 15min
