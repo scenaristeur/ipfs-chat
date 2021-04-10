@@ -95,7 +95,7 @@ export default {
           try {
             let d = JSON.parse(data);
             console.log(d);
-            this.nodes.unshift(d);
+            this.nodes.push(d);
             //   if (
             //     Array.isArray(d.nodes) &&
             //     Array.isArray(d.edges) &&
