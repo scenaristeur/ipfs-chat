@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ipgs-chat/precache-manifest.8e39335b05df9e562c2a98606f1b1379.js"
+  "/ipgs-chat/precache-manifest.d912ce0343ed02361ed674a416f9ce78.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "ipfs-chat"});
