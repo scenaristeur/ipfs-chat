@@ -1,11 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2d4a286c1bd93aab61f8",
+    "revision": "75a45c92891374845e85",
     "url": "/ipfs-chat/css/app.7e78457d.css"
   },
   {
-    "revision": "c0c02182da72ee238843",
-    "url": "/ipfs-chat/css/chunk-a7e4a096.546f20d2.css"
+    "revision": "67c09c3ff2799abff05c",
+    "url": "/ipfs-chat/css/chunk-29ab5687.2fa51c44.css"
+  },
+  {
+    "revision": "2d2f1ab57fe103f91583",
+    "url": "/ipfs-chat/css/chunk-cf33ef24.92a6aba1.css"
   },
   {
     "revision": "acd85e1b4716398e8628",
@@ -64,32 +68,48 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ipfs-chat/img/zoomExtends.5f78e86f.png"
   },
   {
-    "revision": "1a077e81f36f1ba942074db86fd2f828",
+    "revision": "17166979aa3acd1acd35331d9199dc41",
     "url": "/ipfs-chat/index.html"
   },
   {
-    "revision": "58723be528c077f1b24a",
-    "url": "/ipfs-chat/js/about.bd4bfafe.js"
+    "revision": "ace2ad75c0e9c23e2991",
+    "url": "/ipfs-chat/js/about.b18c4b61.js"
   },
   {
-    "revision": "2d4a286c1bd93aab61f8",
-    "url": "/ipfs-chat/js/app.66f56972.js"
+    "revision": "75a45c92891374845e85",
+    "url": "/ipfs-chat/js/app.c437a8cb.js"
   },
   {
-    "revision": "bc47b62378372f5098a1",
-    "url": "/ipfs-chat/js/chunk-092014e4.55ff4cd9.js"
+    "revision": "2475506c56bd1901ebb0",
+    "url": "/ipfs-chat/js/chunk-092014e4.9bd4cce1.js"
   },
   {
     "revision": "d62333b9238cc19b577c",
     "url": "/ipfs-chat/js/chunk-19b30634.5c1eb1cc.js"
   },
   {
-    "revision": "c335b668f9007a33bb52",
-    "url": "/ipfs-chat/js/chunk-44d94d30.0e402db2.js"
+    "revision": "67c09c3ff2799abff05c",
+    "url": "/ipfs-chat/js/chunk-29ab5687.d90261a3.js"
   },
   {
-    "revision": "c0c02182da72ee238843",
-    "url": "/ipfs-chat/js/chunk-a7e4a096.de45299b.js"
+    "revision": "e3539d2da1e83a8a26c3",
+    "url": "/ipfs-chat/js/chunk-2d0cc5ba.ce429ebf.js"
+  },
+  {
+    "revision": "2f15e374a31718b0c1e1",
+    "url": "/ipfs-chat/js/chunk-2d0e2723.5a46e659.js"
+  },
+  {
+    "revision": "2706fdd086e152b2260e",
+    "url": "/ipfs-chat/js/chunk-2d215ca0.4ce37018.js"
+  },
+  {
+    "revision": "daadade2e0f0c3bcd91f",
+    "url": "/ipfs-chat/js/chunk-44d94d30.54441f82.js"
+  },
+  {
+    "revision": "2d2f1ab57fe103f91583",
+    "url": "/ipfs-chat/js/chunk-cf33ef24.fea768d9.js"
   },
   {
     "revision": "acd85e1b4716398e8628",
