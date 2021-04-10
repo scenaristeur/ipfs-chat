@@ -36,3 +36,7 @@ git add . && git commit -m "ajout de dist"
 git push --set-upstream origin main
 git subtree push --prefix dist origin gh-pages
 ```
+ensuite 
+```
+npm run git -- "message"
+```
