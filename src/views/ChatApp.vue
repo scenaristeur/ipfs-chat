@@ -1,20 +1,22 @@
 <template>
   <div>
     chat app status : {{ status }}
-
+    <b-input v-model="content" />
     <b-button @click="IpfsAdd">Add</b-button>
     <b-button @click="load">Load</b-button>
+    notifications : {{ notifications }}
   </div>
 </template>
 
 <script>
-import ldflex from '@solid/query-ldflex/lib/exports/rdflib'
+import ldflex from "@solid/query-ldflex/lib/exports/rdflib";
 export default {
   name: "ChatApp",
   data() {
     return {
       status: "none",
       agoraPath: "https://ipgs.solidcommunity.net/public/ipgs/network.ttl",
+      content: ""
     };
   },
   created() {
@@ -40,14 +42,16 @@ export default {
     async IpfsAdd() {
       console.log(this.ipfs);
       // console.log(this.editorContent.content);
-      let json = { name: "tDSGZEGest" };
+      let json = { test: this.content };
       const results = await this.ipfs.add(JSON.stringify(json));
       console.log("res", results);
       console.log(await results.cid);
       this.cid = results.cid;
       console.log(this.cid);
       console.log("https://ipfs.io/ipfs/" + this.cid.string);
-      await  ldflex[this.agoraPath]['https://www.dublincore.org/specifications/dublin-core/dcmi-terms/hasPart'].add(this.cid.string)
+      await ldflex[this.agoraPath][
+        "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/hasPart"
+      ].add(this.cid.string);
       // this.$bvModal.show("ipfs-modal");
       // this.editorContent.content.ipfscid = results.cid
       // this.cid = results.cid
@@ -56,7 +60,7 @@ export default {
       this.loadIpfs(this.cid.string);
     },
     async loadIpfs(cid) {
-        console.log(cid)
+      console.log(cid);
       try {
         // Await for ipfs node instance.
         // this.ipfs = await this.$ipfs;
@@ -86,13 +90,13 @@ export default {
         try {
           let d = JSON.parse(data);
           console.log(d);
-        //   if (
-        //     Array.isArray(d.nodes) &&
-        //     Array.isArray(d.edges) &&
-        //     d.nodes.length > 0
-        //   ) {
-        //     this.$store.commit("ipgs/setGraphs", [d]);
-        //   }
+          //   if (
+          //     Array.isArray(d.nodes) &&
+          //     Array.isArray(d.edges) &&
+          //     d.nodes.length > 0
+          //   ) {
+          //     this.$store.commit("ipgs/setGraphs", [d]);
+          //   }
         } catch (e) {
           console.log("i can't parse", data);
         }
@@ -102,6 +106,12 @@ export default {
       }
     },
   },
+    computed: {
+      notifications: {
+        get () { return this.$store.state.notifications},
+        set (/*value*/) { /*this.updateTodo(value)*/ }
+      },
+    }
 };
 </script>
 

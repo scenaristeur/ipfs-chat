@@ -1,12 +1,9 @@
 <template>
-  <b-container> 
-      
-      
-      <h3>Chat socket </h3>
-      agoraPath : {{ agoraPath}}<br>
-      
-      
-      </b-container>
+  <b-container>
+    <h3>Chat socket</h3>
+    agoraPath : {{ agoraPath }}<br />
+    notifications : {{ notifications }}
+  </b-container>
 </template>
 
 <script>
@@ -17,10 +14,11 @@ export default {
   data() {
     return {
       agoraPath: "https://ipgs.solidcommunity.net/public/ipgs/network.ttl",
+      notifications: [],
     };
   },
   created() {
-      let app = this
+    let app = this;
     var socket = new WebSocket("wss://ipgs.solidcommunity.net/", ["solid-0.1"]);
     //  var socket = new WebSocket('wss://solidweb.org');
 
@@ -28,6 +26,7 @@ export default {
     socket.onopen = function () {
       //  console.log("socket open")
       this.send("sub " + app.agoraPath);
+      app.update();
       //console.log("socket sub to "+app.log)
     };
     socket.onmessage = function (msg) {
@@ -42,13 +41,7 @@ export default {
   },
   methods: {
     async update() {
-     // let nb = 0;
       let notifications = [];
-      console.log("update", this.agoraPath);
-      await this.read(notifications);
-      //this.nb = nb;
-    },
-    async read(notifications) {
       await ldflex.clearCache();
       for await (const agoraEvent of ldflex[this.agoraPath][
         "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/hasPart"
@@ -57,6 +50,8 @@ export default {
         // nb++;
       }
       console.log(notifications);
+      this.notifications = notifications;
+      this.$store.commit("setNotifications", notifications);
     },
   },
 };
