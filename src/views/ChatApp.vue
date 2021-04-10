@@ -1,14 +1,14 @@
 <template>
   <div>
-    chat app status : {{ status }}
+   status : {{ status }}
     <b-input v-model="content" v-on:keyup.enter="IpfsAdd" />
     <b-button @click="IpfsAdd">Add</b-button>
     <b-button @click="load">Load</b-button>
     <!-- notifications : {{ notifications }}<br /> -->
 
-    <NetworkView :nodes="nodes" />
+    <NetworkView :network="network" />
 
-    nodes : {{ JSON.stringify(nodes) }}
+    network : {{ JSON.stringify(network) }}
   </div>
 </template>
 
@@ -24,7 +24,48 @@ export default {
       status: "none",
       agoraPath: "https://ipgs.solidcommunity.net/public/ipgs/network.ttl",
       content: "",
-      nodes: [],
+  
+            network: {
+            nodes: [],
+      edges: [],
+      options: {
+        nodes: {
+          //  shape: "dot",
+          scaling: {
+            min: 10,
+            max: 30,
+          },
+          font: {
+            size: 12,
+            face: "Tahoma",
+          },
+        },
+        edges: {
+          arrows: "to",
+          width: 0.15,
+          color: { inherit: "from" },
+          font: {
+            align: "top",
+          },
+          smooth: {
+            type: "continuous",
+          },
+        },
+        physics: {
+          stabilization: false,
+          barnesHut: {
+            gravitationalConstant: -8000, //-8000
+            springConstant: 0.03, //0.001 //0.01
+            springLength: 100, //200
+          },
+        },
+        interaction: {
+          navigationButtons: true,
+          tooltipDelay: 200,
+          // hideEdgesOnDrag: true,
+        },
+      },
+    }
     };
   },
   created() {
@@ -101,9 +142,9 @@ export default {
           let d = JSON.parse(data);
           console.log(d);
           d.id == undefined ? (d.id = cid) : "";
-          var index = this.nodes.findIndex((x) => x.id == d.id);
-          index === -1 ? this.nodes.push(d) : "";
-          console.log(this.nodes.length)
+          var index = this.network.nodes.findIndex((x) => x.id == d.id);
+          index === -1 ? this.network.nodes.push(d) : "";
+          console.log(this.network.nodes.length)
           //   if (
           //     Array.isArray(d.nodes) &&
           //     Array.isArray(d.edges) &&

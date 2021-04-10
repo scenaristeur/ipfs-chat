@@ -49,7 +49,7 @@ export default {
         // nb++;
       }
       console.log(this.notifications);
- 
+ console.log("not",this.notifications.length)
 
     },
   },

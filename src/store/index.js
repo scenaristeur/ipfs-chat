@@ -5,12 +5,17 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    notifications: []
+    notifications: [],
+    action: null,
   },
   mutations: {
     setNotifications(state, n) {
       state.notifications = n
-    }
+    },
+    setAction(state, a){
+      console.log(a)
+      state.action = a
+    },
   },
   actions: {
   },
