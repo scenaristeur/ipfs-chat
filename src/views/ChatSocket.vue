@@ -2,7 +2,6 @@
   <b-container>
     <h3>Chat socket</h3>
     agoraPath : {{ agoraPath }}<br />
-    notifications : {{ notifications }}
   </b-container>
 </template>
 
@@ -14,7 +13,6 @@ export default {
   data() {
     return {
       agoraPath: "https://ipgs.solidcommunity.net/public/ipgs/network.ttl",
-      notifications: [],
     };
   },
   created() {
@@ -50,8 +48,8 @@ export default {
         // nb++;
       }
       console.log(notifications);
-      this.notifications = notifications;
       this.$store.commit("setNotifications", notifications);
+
     },
   },
 };

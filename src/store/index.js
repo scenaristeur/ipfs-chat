@@ -9,7 +9,6 @@ export default new Vuex.Store({
   },
   mutations: {
     setNotifications(state, n) {
-      console.log(n)
       state.notifications = n
     }
   },

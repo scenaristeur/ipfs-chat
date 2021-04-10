@@ -1,8 +1,7 @@
 <template>
   <div class="home">
-        <ChatSocket />
+    <ChatSocket />
     <ChatApp />
-
   </div>
 </template>
 
@@ -13,7 +12,7 @@ export default {
   name: "Home",
   components: {
     ChatApp: () => import("@/views/ChatApp"),
-        ChatSocket: () => import("@/views/ChatSocket"),
+    ChatSocket: () => import("@/views/ChatSocket"),
   },
 };
 </script>

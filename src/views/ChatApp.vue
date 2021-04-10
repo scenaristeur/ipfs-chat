@@ -1,10 +1,11 @@
 <template>
   <div>
     chat app status : {{ status }}
-    <b-input v-model="content" />
+    <b-input v-model="content" v-on:keyup.enter="IpfsAdd" />
     <b-button @click="IpfsAdd">Add</b-button>
     <b-button @click="load">Load</b-button>
-    notifications : {{ notifications }}
+    <!-- notifications : {{ notifications }}<br /> -->
+    nodes : {{ JSON.stringify(nodes) }}
   </div>
 </template>
 
@@ -16,7 +17,8 @@ export default {
     return {
       status: "none",
       agoraPath: "https://ipgs.solidcommunity.net/public/ipgs/network.ttl",
-      content: ""
+      content: "",
+      nodes: [],
     };
   },
   created() {
@@ -34,6 +36,8 @@ export default {
         this.id = id;
         // Set successful status text.
         this.status = "Connected to IPFS =)";
+        console.log(this.status);
+      //  this.notifications = this.$store.state.notifications;
       } catch (err) {
         // Set error status text.
         this.status = `Error: ${err}`;
@@ -42,7 +46,7 @@ export default {
     async IpfsAdd() {
       console.log(this.ipfs);
       // console.log(this.editorContent.content);
-      let json = { test: this.content };
+      let json = { label: this.content };
       const results = await this.ipfs.add(JSON.stringify(json));
       console.log("res", results);
       console.log(await results.cid);
@@ -52,6 +56,7 @@ export default {
       await ldflex[this.agoraPath][
         "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/hasPart"
       ].add(this.cid.string);
+      this.content = "";
       // this.$bvModal.show("ipfs-modal");
       // this.editorContent.content.ipfscid = results.cid
       // this.cid = results.cid
@@ -73,45 +78,70 @@ export default {
         // // Set successful status text.
         // console.log("Connected to IPFS =)");
         // console.log(cid);
-        const stream = await this.ipfs.cat(cid);
-        let data = "";
-        console.log("st", stream);
-        for await (const chunk of stream) {
-          console.log(chunk);
-          // chunks of data are returned as a Buffer, convert it back to a string
-          data += chunk.toString();
-        }
-        //  this.restit = data
-        console.log(data);
-        console.info(
-          "must take a look at this solution if always preload error: https://github.com/ipfs/js-ipfs/issues/1481"
-        );
+        if (this.status != 'none') {
+          const stream = await this.ipfs.cat(cid);
+          let data = "";
+          for await (const chunk of stream) {
+            console.log(chunk);
+            // chunks of data are returned as a Buffer, convert it back to a string
+            data += chunk.toString();
+          }
+          //  this.restit = data
+          console.log(data);
+          console.info(
+            "must take a look at this solution if always preload error: https://github.com/ipfs/js-ipfs/issues/1481"
+          );
 
-        try {
-          let d = JSON.parse(data);
-          console.log(d);
-          //   if (
-          //     Array.isArray(d.nodes) &&
-          //     Array.isArray(d.edges) &&
-          //     d.nodes.length > 0
-          //   ) {
-          //     this.$store.commit("ipgs/setGraphs", [d]);
-          //   }
-        } catch (e) {
-          console.log("i can't parse", data);
+          try {
+            let d = JSON.parse(data);
+            console.log(d);
+            this.nodes.unshift(d);
+            //   if (
+            //     Array.isArray(d.nodes) &&
+            //     Array.isArray(d.edges) &&
+            //     d.nodes.length > 0
+            //   ) {
+            //     this.$store.commit("ipgs/setGraphs", [d]);
+            //   }
+          } catch (e) {
+            console.log("i can't parse", data);
+          }
+        } else {
+          console.error("IPFS not READY YET :-{");
         }
       } catch (err) {
         // Set error status text.
         console.log(`Error: ${err}`);
       }
     },
+    async processNotifs() {
+      console.log(this.notifications);
+      // this.nodes = [];
+      if (this.notifications != undefined && this.notifications.length > 0) {
+        this.notifications.forEach((n) => {
+          this.loadIpfs(n);
+        });
+      }
+    },
   },
-    computed: {
-      notifications: {
-        get () { return this.$store.state.notifications},
-        set (/*value*/) { /*this.updateTodo(value)*/ }
+  watch: {
+    notifications() {
+      this.processNotifs();
+    },
+    status() {
+      this.processNotifs();
+    },
+  },
+  computed: {
+    notifications: {
+      get() {
+        return this.$store.state.notifications;
       },
-    }
+      set(/*value*/) {
+        /*this.updateTodo(value)*/
+      },
+    },
+  },
 };
 </script>
 
